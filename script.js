@@ -8,7 +8,7 @@ document.getElementById('videoForm').addEventListener('submit', function(event) 
     const videoLength = document.getElementById('videoLength').value;
     const videoStyle = document.getElementById('videoStyle').value;
   
-    // Log the form data to the console (replace with API call)
+    // Log form data for debugging
     console.log({
       textInput,
       imageInput,
@@ -17,6 +17,29 @@ document.getElementById('videoForm').addEventListener('submit', function(event) 
       videoStyle
     });
   
-    alert('Video generation started! Check console for details.');
+    // Example structure for API call (replace with actual API logic)
+    const formData = new FormData();
+    formData.append('text', textInput);
+    formData.append('image', imageInput);
+    formData.append('audio', audioInput);
+    formData.append('videoLength', videoLength);
+    formData.append('videoStyle', videoStyle);
+  
+    // Replace with actual API endpoint
+    const apiEndpoint = 'https://example-ai-video-api.com/generate';
+  
+    fetch(apiEndpoint, {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Video generated:', data);
+      alert('Your video has been generated successfully!');
+    })
+    .catch(error => {
+      console.error('Error generating video:', error);
+      alert('There was an error generating your video.');
+    });
   });
   

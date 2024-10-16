@@ -3,99 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Video Generator</title>
+  <title>AI Text-to-Video Generator</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f7f6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      width: 100%;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 8px;
-      color: #555;
-      font-weight: 500;
-    }
-
-    input[type="text"],
-    input[type="file"],
-    select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 16px;
-      transition: all 0.3s ease;
-    }
-
-    input[type="text"]:focus,
-    input[type="file"]:focus,
-    select:focus {
-      border-color: #6a64f1;
-      box-shadow: 0 0 5px rgba(106, 100, 241, 0.5);
-    }
-
-    button {
-      width: 100%;
-      padding: 15px;
-      background-color: #6a64f1;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: #5848e1;
-    }
-
-    .custom-options {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .custom-options select {
-      width: 48%;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <div class="container">
-    <h1>AI Video Generator</h1>
+    <h1>AI Text-to-Video Generator</h1>
     <form id="videoForm">
       <label for="textInput">Enter Your Script or Text</label>
-      <input type="text" id="textInput" placeholder="Type your text here" required>
+      <textarea id="textInput" placeholder="Type your script here" rows="4" required></textarea>
 
       <label for="imageInput">Upload Image (optional)</label>
       <input type="file" id="imageInput" accept="image/*">
@@ -105,7 +23,7 @@
 
       <div class="custom-options">
         <div>
-          <label for="videoLength">Video Length</label>
+          <label class="vidbox" for="videoLength">Video Length</label>
           <select id="videoLength">
             <option value="short">Short (30s)</option>
             <option value="medium">Medium (60s)</option>
@@ -113,11 +31,13 @@
           </select>
         </div>
         <div>
-          <label for="videoStyle">Video Style</label>
+          <label class="vidbox" for="videoStyle">Video Style</label>
           <select id="videoStyle">
-            <option value="modern">Modern</option>
-            <option value="retro">Retro</option>
+            <option value="realistic">Realistic</option>
+            <option value="anime">Anime</option>
+            <option value="cartoon">Cartoon</option>
             <option value="minimalist">Minimalist</option>
+            <option value="cinematic">Cinematic</option>
           </select>
         </div>
       </div>
@@ -126,29 +46,7 @@
     </form>
   </div>
 
-  <script>
-    document.getElementById('videoForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      // Collect the form data
-      const textInput = document.getElementById('textInput').value;
-      const imageInput = document.getElementById('imageInput').files[0];
-      const audioInput = document.getElementById('audioInput').files[0];
-      const videoLength = document.getElementById('videoLength').value;
-      const videoStyle = document.getElementById('videoStyle').value;
-
-      // Log the form data to the console (replace with API call)
-      console.log({
-        textInput,
-        imageInput,
-        audioInput,
-        videoLength,
-        videoStyle
-      });
-
-      alert('Video generation started! Check console for details.');
-    });
-  </script>
+  <script src="script.js"></script>
 
 </body>
 </html>
