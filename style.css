@@ -1,57 +1,39 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Fullscreen video background */
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; /* Make sure video stays in the background */
   }
   
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #767777;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .container {
-    background-color: #ffffff;
-    padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+  /* Overlay content style */
+  .content {
+    position: relative;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    color: #f1f1f1;
     width: 100%;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    z-index: 2;
   }
   
   h1 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #fff;
   }
   
-  label {
+  label, select, textarea, input[type="file"] {
     display: block;
-    margin-bottom: 8px;
-    color: #444;
-    font-weight: 500;
-  }
-  
-  textarea, 
-  input[type="file"], 
-  select {
     width: 100%;
-    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    padding: 10px;
     border-radius: 8px;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  }
-  
-  textarea:focus,
-  input[type="file"]:focus,
-  select:focus {
-    border-color: #6a64f1;
-    box-shadow: 0 0 5px rgba(106, 100, 241, 0.5);
+    border: 1px solid #ccc;
   }
   
   button {
@@ -62,7 +44,6 @@
     border: none;
     border-radius: 8px;
     font-size: 16px;
-    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
@@ -71,6 +52,23 @@
     background-color: #5848e1;
   }
   
+  /* Pause/Play Button Style */
+  #myBtn {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  #myBtn:hover {
+    background: #ddd;
+    color: black;
+  }
+  
+  /* Flexbox for form layout */
   .custom-options {
     display: flex;
     justify-content: space-between;
@@ -79,11 +77,4 @@
   .custom-options select {
     width: 48%;
   }
-
-  .vidbox {
-    width: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
+  

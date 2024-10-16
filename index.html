@@ -9,7 +9,14 @@
 </head>
 <body>
 
-  <div class="container">
+  <!-- Fullscreen Background Video -->
+  <video autoplay muted loop id="myVideo">
+    <source src="your-video-file.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Overlay content (Form and heading) -->
+  <div class="content">
     <h1>AI Text-to-Video Generator</h1>
     <form id="videoForm">
       <label for="textInput">Enter Your Script or Text</label>
@@ -23,7 +30,7 @@
 
       <div class="custom-options">
         <div>
-          <label class="vidbox" for="videoLength">Video Length</label>
+          <label for="videoLength">Video Length</label>
           <select id="videoLength">
             <option value="short">Short (30s)</option>
             <option value="medium">Medium (60s)</option>
@@ -31,7 +38,7 @@
           </select>
         </div>
         <div>
-          <label class="vidbox" for="videoStyle">Video Style</label>
+          <label for="videoStyle">Video Style</label>
           <select id="videoStyle">
             <option value="realistic">Realistic</option>
             <option value="anime">Anime</option>
@@ -44,6 +51,9 @@
 
       <button type="submit">Generate Video</button>
     </form>
+
+    <!-- Pause/Play Button for the Background Video -->
+    <button id="myBtn" onclick="myFunction()">Pause</button>
   </div>
 
   <script src="script.js"></script>
